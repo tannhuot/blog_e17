@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    string message = "ASP.net";
+    int a = 5;
+    int b = 2;
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome @message Sum: @(a + b)</h1>
+    @if (a > b) {
+        <p>Value of a: @a is greater than b: @b.</p>
+    } else {
+        <p>Value of b: @b is greater than a: @a.</p>
+    }
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+<ul>
+    @for (int i = 1; i < 6; i++)
+    {
+        <li>Item @i</li>
+    }
+</ul>
