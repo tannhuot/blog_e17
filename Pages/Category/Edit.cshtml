@@ -1,0 +1,28 @@
+﻿@page
+@model blog_e17.Pages.Category.EditModel
+@{
+	ViewData["Title"] = "Edit";
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="d-flex justify-content-between mb-2">
+            <h3>Edit Category</h3>
+            <a class="btn btn-success" asp-page="/category/index" role="button">Back</a>
+        </div>
+        <!-- Blog entries-->
+        <div class="col-lg-12">
+            <div class="card p-3">
+                <form method="post">
+                    <input type="hidden" asp-for="Category.Id" />
+                    <div class="mb-3">
+                        <label asp-for="Category.Name"  class="form-label">Category</label>
+                        <input asp-for="Category.Name" type="text" class="form-control" />
+                        <span asp-validation-for="Category.Name"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
