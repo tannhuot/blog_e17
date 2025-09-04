@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @* <link rel="stylesheet" href="~/blog_e17.styles.css" asp-append-version="true" /> *@
+    @RenderSection("Style", required:false);
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
-                <a class="navbar-brand" href="/index.html">Blog Name</a>
+                <a class="navbar-brand" asp-page="/">Blog Name</a>
                 <button class="navbar-toggler"
                         type="button"
                         data-bs-toggle="collapse"

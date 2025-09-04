@@ -1,12 +1,10 @@
 ﻿namespace blog_e17.Models
 {
-    public class CategoryEntity
+    public class TagEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
 
-        // Many
-        // Navigation Reference Property
         public ICollection<PostEntity> Posts { get; set; }
     }
 }

@@ -11,5 +11,7 @@ namespace blog_e17.Models
         }
 
         public DbSet<CategoryEntity> Categories { get; set; }
+        public DbSet<TagEntity> Tags { get; set; }
+        public DbSet<PostEntity> Posts { get; set; }
     }
 }

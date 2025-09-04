@@ -12,5 +12,13 @@ namespace blog_e17.Pages.Category
         {
             Categories = await _db.Categories.ToListAsync();
         }
+
+        public async Task<IActionResult> OnPost(int id)
+        {
+            var existCate = await _db.Categories.FindAsync(id);
+            _db.Categories.Remove(existCate);
+            await _db.SaveChangesAsync();
+            return RedirectToPage();
+        }
     }
 }
