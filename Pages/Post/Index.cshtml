@@ -1,0 +1,74 @@
+﻿@page
+@model blog_e17.Pages.Post.IndexModel
+@using blog_e17.Pages.Shared
+@{
+    ViewData["Title"] = "Post";
+    var emtyModel = new _EmptyViewModel();
+    emtyModel.Title = "No Post Data";
+    emtyModel.Image = "img1.png";
+
+}
+
+<div class="container my-5">
+    <div class="row">
+        <div class="d-flex justify-content-between mb-2">
+            <h3>Post List</h3>
+            <a class="btn btn-success" asp-page="/post/create" role="button">Create</a>
+        </div>
+        <!-- Blog entries-->
+        @if (Model.Posts.Count() > 0) {
+            <div class="col-lg-12">
+                <div class="card p-3">
+                    <table id="datatable"
+                           class="table table-striped"
+                           style="width: 100%">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <th>Category</th>
+                                <th>Tag</th>
+                                <th style="width: 100px">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var item in Model.Posts) {
+                                <tr>
+                                    <td>1</td>
+                                    <td><img style="width: 80px" src="~/uploads/@item.Thumnail" /></td>
+                                    <td>@item.Title</td>
+                                    <td>@item.Category.Name</td>
+                                    <td>
+                                        <ul>
+                                            @foreach (var tag in item.Tags) {
+                                                <li>@tag.Name</li>
+                                            }
+                                        </ul>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-primary btn-sm"
+                                           href="create_edit.html"
+                                           role="button">Edit</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>No</th>
+                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <th>Tag</th>
+                                <th>Tag</th>
+                                <th style="width: 100px">Action</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        } else {
+            <partial name="_EmptyView" model="emtyModel" />
+        }
+    </div>
+</div>
