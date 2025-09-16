@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace blog_e17.Models
 {
-    public class AppDBContext(IConfiguration configuration) : DbContext
+    public class AppDBContext(IConfiguration configuration) : IdentityDbContext<UserEntity>
     {
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

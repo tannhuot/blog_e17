@@ -1,4 +1,5 @@
 using blog_e17.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -6,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace blog_e17.Pages.Post
 {
+    [Authorize(Roles ="Admin, StockControler, IT")]
     public class CreateModel(AppDBContext _db, IWebHostEnvironment _environment) : PageModel
     {
         [BindProperty]
